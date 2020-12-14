@@ -31,6 +31,11 @@ namespace ContosoUniversity.Models
             get { return LastName + ", " + FirstMidName; }
         }
 
+        public int OpeningHymn { get; set; }
+        public int SacramentHymn { get; set; }
+        public int ClosingHymn { get; set; }
+
+
         public ICollection<CourseAssignment> CourseAssignments { get; set; }
         public OfficeAssignment OfficeAssignment { get; set; }
     }

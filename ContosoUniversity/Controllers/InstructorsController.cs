@@ -92,7 +92,7 @@ namespace ContosoUniversity.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FirstMidName,HireDate,LastName,OfficeAssignment")] Instructor instructor, string[] selectedCourses)
+        public async Task<IActionResult> Create([Bind("FirstMidName,HireDate,LastName,OfficeAssignment,OpeningHymn,SacramentHymn,ClosingHymn")] Instructor instructor, string[] selectedCourses)
         {
             if (selectedCourses != null)
             {
@@ -172,7 +172,8 @@ namespace ContosoUniversity.Controllers
             if (await TryUpdateModelAsync<Instructor>(
                 instructorToUpdate,
                 "",
-                i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
+                i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment, i => i.OpeningHymn, i => i.SacramentHymn, i => i.ClosingHymn
+))
             {
                 if (String.IsNullOrWhiteSpace(instructorToUpdate.OfficeAssignment?.Location))
                 {
